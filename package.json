@@ -1,0 +1,21 @@
+{
+  "author": "Folke Lemaitre <folke@engagor.com>",
+  "name": "sonora",
+  "description": "Socket.IO + Node.js + RabbitMQ = Simple Web Messaging Service",
+  "version": "0.0.1",
+  "homepage": "http://sonora.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/engagor/sonora.git"
+  },
+  "dependencies": {
+    "socket.io" : "*",
+    "express" : "*",
+    "rabbit.js" : "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
