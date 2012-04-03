@@ -11,7 +11,7 @@
   "dependencies": {
     "socket.io" : "*",
     "express" : "*",
-    "rabbit.js" : "*"
+    "amqp" : "*"
   },
   "devDependencies": {},
   "optionalDependencies": {},
