@@ -14,7 +14,9 @@
     "amqp" : "*"
   },
   "devDependencies": {},
-  "optionalDependencies": {},
+  "optionalDependencies": {
+    "forever" : "*"
+  },
   "engines": {
     "node": "*"
   }

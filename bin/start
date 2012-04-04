@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BASE=$(dirname $(dirname $(readlink -f $0)))
+cd $BASE
+node_modules/forever/bin/forever start -l $BASE/log/forever.log -o $BASE/log/out.log -e $BASE/log/err.log -p $BASE/log sonora.js

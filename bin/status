@@ -1,0 +1,6 @@
+#!/bin/bash
+
+BASE=$(dirname $(dirname $(readlink -f $0)))
+
+cd $BASE
+node_modules/forever/bin/forever list | grep sonora.js
