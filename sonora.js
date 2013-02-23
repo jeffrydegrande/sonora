@@ -1,6 +1,12 @@
-var app = require('express').createServer(),
+var https = require('https');
+var config = require('./config'), fs = require('fs');
+
+var app = require('express').createServer({
+        key: fs.readFileSync(config.ssl.key).toString(),
+        cert: fs.readFileSync(config.ssl.cert).toString(),
+        ca: fs.readFileSync(config.ssl.ca).toString(),
+    }),
     io = require('socket.io').listen(app),
-    config = require('./config'),
     amqp = require('amqp');
 
 process.on('uncaughtException', function (error) {
@@ -13,6 +19,11 @@ app.listen(config.port);
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/html/index.html');
 });
+
+io.enable('browser client minification');  // send minified client
+io.enable('browser client etag');          // apply etag caching logic based on version number
+io.enable('browser client gzip');          // gzip the file
+io.set('log level', 1);                    // reduce logging
 
 var sonora = {};
 

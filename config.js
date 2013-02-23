@@ -1,9 +1,14 @@
 var config = {
-    port: 9999,
+    port: 443,
     rabbitmq: {
         host: 'server07',
         queue: 'notifications',
         ttl: 30000
+    },
+    ssl: {
+        key: '/data/code/engagor/system/certs/star_engagor_com.key',
+        cert: '/data/code/engagor/system/certs/star_engagor_com.crt',
+        ca: '/data/code/engagor/system/certs/DigiCertCA.crt',
     }
 };
 
