@@ -1,3 +1,4 @@
+console.log("Init");
 var https = require('https');
 var config = require('./config'), fs = require('fs');
 
@@ -14,7 +15,9 @@ process.on('uncaughtException', function (error) {
     console.log(error.stack);
 });
 
+console.log("Start Listening...");
 app.listen(config.port);
+console.log("Listening...");
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/html/index.html');
@@ -37,9 +40,11 @@ sonora.io = io.of('/sonora').on('connection', function (socket) {
             socket.leave(queues[q]);
     });
 });
-
+console.log("Connecting to RMQ");
 sonora.rabbitmq = amqp.createConnection({ host: config.rabbitmq.host });
+console.log("Connected to RMQ");
 sonora.rabbitmq.on('ready', function () {
+    console.log("Connected to RabbitMQ");
     sonora.rabbitmq.queue(config.rabbitmq.queue, {arguments: {'x-message-ttl':config.rabbitmq.ttl}}, function(q){
         q.bind('#');
         q.subscribe(function (message) {

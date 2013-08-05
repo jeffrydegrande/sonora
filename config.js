@@ -1,7 +1,7 @@
 var config = {
     port: 443,
     rabbitmq: {
-        host: 'server07',
+        host: '10.10.2.15',
         queue: 'notifications',
         ttl: 30000
     },
