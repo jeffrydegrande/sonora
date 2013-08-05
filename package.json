@@ -9,8 +9,8 @@
     "url": "git://github.com/engagor/sonora.git"
   },
   "dependencies": {
-    "socket.io" : "*",
-    "express" : "*",
+    "socket.io" : "0.9.6",
+    "express" : "2.5.9",
     "amqp" : "*"
   },
   "devDependencies": {},
